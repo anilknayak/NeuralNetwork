@@ -18,7 +18,7 @@ import tensorflow as tf
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
-
+from tqdm import tqdm
 flags = tf.app.flags
 flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
 flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
@@ -125,7 +125,7 @@ def main(_):
     path = os.path.join(os.getcwd(), read_images_base_dir+'images')
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')
-    for group in grouped:
+    for group in tqdm(grouped,desc = "TF Record Preparation",ncols = 100):
         tf_example = create_tf_example(group, path)
         writer.write(tf_example.SerializeToString())
 

@@ -13,7 +13,7 @@ import xml.etree.ElementTree as etree
 import shutil
 import sys
 import glob
-
+from tqdm import tqdm
 # flags = tf.app.flags
 # flags.DEFINE_string('annotation_path', '', 'Path to the CSV input')
 # flags.DEFINE_string('images_path', '', 'Path to output TFRecord')
@@ -50,7 +50,7 @@ if number_of_arg == 4:
         # print("Number of Images Available : ", str(len(images_paths)))
 
         categories = {}
-        for annotation_file_path in annotations_paths:
+        for annotation_file_path in tqdm(annotations_paths,desc = "Reading Annotations",ncols = 100):
             annotation_file_path = annotation_file_path
             tree = etree.parse(annotation_file_path)
             root = tree.getroot()
@@ -93,7 +93,7 @@ if number_of_arg == 4:
         sum = 0
         sum1 = 0
         sum2 = 0
-        for distribution in distributions.keys():
+        for distribution in tqdm(distributions.keys(),desc = "Preparing Training and Testing Data",ncols = 100):
             dis = distributions[distribution]
             files = dis['files']
             print("Category : [",distribution , "] \t\t => Total : " , dis['total'] , " Training : ", dis['training'] , " Testing : ", dis['testing'])

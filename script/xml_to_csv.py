@@ -5,24 +5,18 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 import sys
 import glob
+from tqdm import tqdm
 
 def main(read_images_base_dir,csv_write_dir):
-    # read_images_base_dir = "/home/anil/training_details/training_images/dataset/"
-    # csv_write_dir = "/home/anil/NeuralNetwork/Attempt3/"
-
-    # read_images_base_dir = "/Users/anilnayak/Downloads/trained/NeuralNetwork/Attempt3/"
-    # csv_write_dir = "/Users/anilnayak/Downloads/trained/NeuralNetwork/Attempt3/"
-
-    for directory in ['train','test']:
+    for directory in tqdm(['train','test'], desc = "Converting XML to CSV ", ncols = 100):
         image_path = os.path.join(os.getcwd(), read_images_base_dir+'images/{}'.format(directory))
-        print(image_path)
         xml_df = xml_to_csv(image_path)
         xml_df.to_csv(csv_write_dir+'data/{}_labels.csv'.format(directory), index=None)
-        print('Successfully converted xml to csv. for ',directory,'ing')
+        # print('Successfully converted xml to csv. for ',directory,'ing')
 
 def xml_to_csv(path):
     xml_list = []
-    for xml_file in glob.glob(path + '/*.xml'):
+    for xml_file in tqdm(glob.glob(path + '/*.xml'),desc = "Converting", ncols = 100):
         tree = ET.parse(xml_file)
         root = tree.getroot()
 
@@ -64,6 +58,7 @@ write_path = sys.argv[2]
 
 if number_of_arg==3:
     main(read_path,write_path)
+    # print("==========================================================================================")
 else:
     print("Lesser Number of argument")
     print("arg1 : read path")
