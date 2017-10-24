@@ -1,15 +1,17 @@
 
 rm -R /home/anil/training_details/training/images/
 mkdir /home/anil/training_details/training/images
+chmod 777 /home/anil/training_details/training/images
 mkdir /home/anil/training_details/training/images/train
+chmod 777 /home/anil/training_details/training/images/train
 mkdir /home/anil/training_details/training/images/test
 rm /home/anil/models/research/object_detection/data/*
 rm -R /home/anil/models/research/object_detection/images/
 rm /home/anil/models/research/object_detection/training/*
 rm /home/anil/training_details/training/data/train* /home/anil/training_details/training/data/test*
 
-python SplitTrainingTestingData.py /home/anil/training_details/training_images/VOCdevkit/VOC2012/Annotations /home/anil/training_details/training_images/VOCdevkit/VOC2012/JPEGImages /home/anil/training_details/training
-python SplitTrainingTestingData.py /home/anil/training_details/training_images/dataset /home/anil/training_details/training_images/dataset /home/anil/training_details/training
+python SplitTrainingTestingData.py /home/anil/training_details/training_images/VOCdevkit/VOC2012/Annotations /home/anil/training_details/training_images/VOCdevkit/VOC2012/JPEGImages /home/anil/training_details/training/images
+python SplitTrainingTestingData.py /home/anil/training_details/training_images/dataset /home/anil/training_details/training_images/dataset /home/anil/training_details/training/images
 
 python xml_to_csv.py /home/anil/training_details/training/images /home/anil/training_details/training
 

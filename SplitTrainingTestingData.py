@@ -14,6 +14,12 @@ import shutil
 import sys
 import glob
 
+# flags = tf.app.flags
+# flags.DEFINE_string('annotation_path', '', 'Path to the CSV input')
+# flags.DEFINE_string('images_path', '', 'Path to output TFRecord')
+# flags.DEFINE_string('target_base_path', '', 'Path to image TFRecord')
+# FLAGS = flags.FLAGS
+
 number_of_arg = len(sys.argv)
 annotation_path = sys.argv[1]
 images_path = sys.argv[2]
