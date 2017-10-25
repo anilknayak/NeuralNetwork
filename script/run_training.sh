@@ -32,7 +32,7 @@ cp -a /home/anil/training_details/training/model/ssd_mobilenet_v1_coco_11_06_201
 
 cd /home/anil/models/research/ && export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
-python /home/anil/models/research/object_detection/train.py --logtostderr --train_dir=/home/anil/models/research/object_detection/training/ --pipeline_config_path=/home/anil/models/research/object_detection/training/ssd_mobilenet_v1_coco.config
+cd /home/anil/models/research/object_detection/ && python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_coco.config
 
 
 
