@@ -1,0 +1,8 @@
+Train a neural network to recognize the face of the students in the class. You may retrain the neural network that you used in the previous assignment or use a different neural network for this assignment.
+Notes: 
+You must retrain your neural network. In other words "Do not use the neural network as a black box".
+If the output of your neural network is an embedding then you may use an SVM or any other classifier after the neural network for recognizing the faces. 
+You system must operate in two different modes.
+Read the input images from a test directory and display each test image side by side with a representative image from the recognized person.
+Capture the image from a camera and continuously display the captured image side by side with a representative image from the recognized person. 
+In both modes of operations there should be a bounding box around the detected face in the test image or captured image.
