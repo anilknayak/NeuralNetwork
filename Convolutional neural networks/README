@@ -1,0 +1,14 @@
+The purpose of the this assignment is to practice with convolutional neural networks.
+ 
+ 
+Task 1:
+Use a convolutional neural network to recognize faces.
+You are allowed to select any public domain existing face recognition neural network software.
+You do not need to train the neural network for this assignment. Simply download your selected face recognition software, load the network structure and trained weights.
+Run the software.
+  
+Task 2:
+Modify the software such that the input to the network is from a camera which is connected to your computer.
+Assume that the captured image from the camera includes only one face.
+Since the network is not trained with your face then it is not expected that the downloaded software be able to recognize you. However, it is expected that the software recognize you as a different person. The accuracy of the result is not important for this assignment.
+ 
